@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+  <style>
+    img {
+      width: 200px;
+      margin-top: 10px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+
+
+  <input type="text" id="imgUrl" ><br>
+  <br><button onclick="addImage()">Add A Image</button>
+
+  <div id="imageContainer"></div>
+
+  <script>
+    function addImage() {
+      var img = document.createElement("img");
+      img.src =  document.getElementById("imgUrl").value;
+
+      document.getElementById("imageContainer").appendChild(img);
+      document.getElementById("imgUrl").value = "";
+    }
+  </script>
+
+</body>
+</html>
