@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>async-await</title>
+    </head>
+    <body>
+        <script>
+          async function addseries(a,b) {
+            return await add(a,b)
+            
+          } 
+          function add(a,b)
+          {
+            let sum=0;
+            for(var i=a;i<=b; i++){
+                sum+=i;
+            }
+            return sum;
+          }
+          addseries(1,10)
+          .then(function(sum){console.log(sum)})
+          console.log("hi")
+        </script>
+    </body>
+
+</html>
