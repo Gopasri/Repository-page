@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grid</title>
+<style>
+body{
+  margin:0;
+  height:100px;
+}
+
+.container{
+   display: grid;
+   border: 5px solid green;
+   gap: 10px;
+   padding: 10px;
+   background-color: rgb(224, 216, 216);
+   color: rgb(20, 4, 4);
+
+}
+.box{
+    border: 2px solid red;
+    padding: 20px;
+
+}
+
+
+
+.topMain{
+  grid-column:1 / 4;
+  grid-row:1;
+}
+
+.topMid{
+  grid-column:4 / 5;
+  grid-row:1;
+}
+
+.topRight{
+  grid-column:5 / 6;
+  grid-row:1;
+}
+
+.midLeft{
+  grid-column:1 / 2;
+  grid-row:2;
+}
+
+.midMain{
+  grid-column:2 / 5;
+  grid-row:2;
+}
+
+.midRight{
+  grid-column:5 / 6;
+  grid-row:2;
+}
+
+.botLeft{
+  grid-column:1 / 2;
+  grid-row:3;
+}
+
+.botMid{
+  grid-column:2 / 3;
+  grid-row:3;
+}
+
+.botMain{
+  grid-column:3 / 6;
+  grid-row:3;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="box topMain">gopa</div>
+  <div class="box topMid">keshvee</div>
+  <div class="box topRight">neelu</div>
+
+  <div class="box midLeft">gopaa</div>
+  <div class="box midMain">keshvee</div>
+  <div class="box midRight">neelu</div>
+
+  <div class="box botLeft">gopa</div>
+  <div class="box botMid">keshvee</div>
+  <div class="box botMain">neelu</div>
+</div>
+
+</body>
+</html>
