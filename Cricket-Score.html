@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cricket Score</title>
+</head>
+<body>
+    <style>
+      .buttons{
+        padding: 10px;
+        min-width: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        
+      }
+    
+    #history {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    
+    }
+
+
+    </style>
+<h1 id="score">Score: 0/0</h1>
+<div>
+  Score Line : <span id="history"></span>
+  
+</div>
+
+
+<div class="buttons">
+  <button onclick="addRunDot()">DOT</button>
+  <button onclick="addRun(1)">1</button>
+  <button onclick="addRun(2)">2</button>
+  <button onclick="addRun(3)">3</button>
+  <button onclick="addRun(4)">4</button>
+  <button onclick="addRun(5)">5</button>
+  <button onclick="addRun(6)">6</button>
+  <button onclick="addWicket()">W</button>
+  <button onclick="addWide()">Wide</button>
+  <button onclick="addnoball()">noball</button>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+<script>
+let runs = 0;
+let wickets = 0;
+ 
+ 
+ 
+ function updateScore() {
+  document.getElementById("score").innerText =
+    `Score: ${runs}-${wickets}`;
+    
+}
+
+function addHistory(value) {
+  let history = document.getElementById("history");
+  history.innerText += value + " ";
+}
+
+function addRun(run) {
+  runs += run;
+
+  let ball = document.createElement("span");
+  ball.innerText = run+" " ;
+
+  document.getElementById("history").appendChild(ball);
+  updateScore();
+}
+
+function addWide() {
+  runs += 1;
+
+  let ball = document.createElement("span");
+  ball.innerText = " 1wd ";
+
+  document.getElementById("history").appendChild(ball);
+  updateScore();
+}
+
+function addnoball() {
+  runs += 1;
+
+  let ball = document.createElement("span");
+  ball.innerText = " 1nb ";
+
+  document.getElementById("history").appendChild(ball);
+  updateScore();
+}
+
+
+function addWicket() {
+  wickets += 1;
+
+  let ball = document.createElement("span");
+  ball.id = "sc";
+  ball.innerText = " W ";
+
+  document.getElementById("history").appendChild(ball);
+  updateScore();
+}
+
+function addRunDot(){
+  let ball = document.createElement("span");
+  ball.id = "sc";
+  ball.innerText = " . ";
+
+  document.getElementById("history").appendChild(ball);
+  
+}
+</script>
+</body>
+</html>
