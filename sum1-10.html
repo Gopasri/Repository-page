@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document</title>
+        <script src="sum-worker.js"></script>
+    </head>
+    <body>
+        
+        <script>
+            console.log("sum of 1-10")
+            function add(cb){
+                var sumworker= new Worker("sum-worker.js")
+                    sumworker.postMessage(0);
+                    sumworker.onmessage=(s)=>{
+                    console.log(s.data)
+                }
+            }
+            add(function(c){console.log(c)})
+            console.log("added")
+        </script>
+    </body>
+</html>

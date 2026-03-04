@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Display Products</title>
+        <style>
+            body
+            {
+                background-color: rgb(79, 86, 91);
+                margin: 5px;
+                padding-left: 45px;
+                padding-right: 30px;
+
+            }
+            #products
+            {
+                display: flex;
+                gap:10px;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                text-align: center;
+            }
+            #div{
+                background-color: white;
+                padding: 10px;
+                border-radius: 10px;
+                border: 2px solid;
+                height: 250px;
+                width:200px;
+            }
+            #title{
+                margin-bottom: 0px;
+                font-size: 15px;
+            }
+            img{
+                width:150px;
+                height:150px
+            }
+        </style>
+
+
+    </head>
+    <body>
+        <script>
+            function Products()
+            {
+                fetch("https://dummyjson.com/products")
+                .then( function( res)
+                {
+                    console.log(res)
+                    return res.json()
+                    
+                })
+                .then(function(data)
+                { 
+                    console.log(data.products)
+                    genUI(data.products)
+                })
+            }
+          function   genUI(products)
+            {
+                var div=document.createElement("div")
+                div.id="products"
+                products.forEach(function(item)
+                {
+                    var p=document.createElement("div")
+                    p.id="div"
+                    var i=document.createElement("img")
+                    i.src=item.thumbnail
+                    
+                    p.appendChild(i)
+                    var t=document.createElement("h5")
+                    t.id="title"
+                    t.innerText=item.title
+                    p.appendChild(t)
+
+
+              
+                    div.appendChild(p)
+                    
+                    
+                });
+                document.body.appendChild(div)
+
+            }
+            Products()
+        </script>
+    </body>
+</html>
