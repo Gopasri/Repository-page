@@ -1,0 +1,33 @@
+{
+  "todos": [],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": "3",
+      "title": "jquery",
+      "author": "nene"
+    },
+    {
+      "title": "Gopasri",
+      "author": "Reddy",
+      "id": "uG83YNC"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

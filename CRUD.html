@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Id" id="i"><br><br>
+    <input type="text" placeholder="Title"id='t'><br><br>
+    <input type="text" placeholder="Author" id="a"><br><br>
+    <button onclick="addtodo(event)">ADD TODO</button><br><br>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>TO DELETE</th>
+            </tr>
+            <tbody id="tb">
+
+            </tbody>
+        </thead>
+    </table>
+    <script>
+        fetch("http://localhost:3000/posts").then(function(res){
+          return  res.json()
+        }).then(function(data){
+            
+           ui(data)
+        })
+        function ui(data){
+            console.log(data)
+            data.forEach(function(a) {
+                /*var tdata=` <tr>
+                <td>${a.id}</td>
+                <td>${a.title}</td>
+                <td>${a.author}</td>
+            </tr>`
+            document.getElementById('tb').appendChild=tdata*/
+            var tr=document.createElement('tr');
+            var td=document.createElement('td');
+            td.innerText=a.id;
+            tr.appendChild(td);
+            td=document.createElement('td');
+            td.innerText=a.title;
+            tr.appendChild(td);
+            td=document.createElement('td');
+            td.innerText=a.author;
+            tr.appendChild(td);
+            td=document.createElement('td');
+            var btn=document.createElement('button');
+            btn.innerText="DELETE";
+            btn.onclick=()=>{
+                deltodo()
+            }
+            td.appendChild(btn)
+            tr.appendChild(td)
+            document.getElementById('tb').appendChild(tr)
+            });
+        }
+        function addtodo(ev){
+           /* //console.log(document.getElementById('i').value)
+            var tr=document.createElement('tr');
+            var td=document.createElement('td');
+            td.innerText=document.getElementById('i').value;
+            tr.appendChild(td);
+            td=document.createElement('td');
+            td.innerText=document.getElementById('t').value;
+            tr.appendChild(td)
+            td=document.createElement('td');
+            td.innerText=document.getElementById('a').value;
+            tr.appendChild(td) ;
+            document.getElementById('tb').appendChild(tr) */   
+           
+          
+               
+            var nt={
+                id:"",
+                title:"",
+                author:""
+            } 
+            nt.id=document.getElementById('i').value;
+            nt.title= document.getElementById('t').value;
+            nt.author=  document.getElementById('a').value;
+            fetch("http://localhost:3000/posts",
+              {
+                method:"post",
+                headers:{
+                    'content-Type':'application/json'
+                },
+                body:JSON.stringify(nt)
+              }
+            ) .then(function(res){
+                return res.JSON();
+            }).then(function(data){
+                ui(data)
+            })
+           
+        }
+         function deltodo(){
+                fetch('http://localhost:3000/posts'+nt.id).then(function(res){
+                    return res.JSON()
+                }).then(function(data){
+                    console.log(data)
+                })
+            }
+    </script>
+</body>
+</html>
