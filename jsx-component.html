@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document</title>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    </head>
+    <body>
+        <div id="r"></div>
+        <script type="text/babel">
+            function Jsx1(){
+                return (<div style={{ color:"blue",border:'2px solid black',margin:'5px',padding:'5px'}}>
+                    <h3>Hello Gopasri</h3>
+                    <h3>Hi Supraja</h3>
+                </div>)
+            }
+            var a=<div>
+                    <Jsx1></Jsx1>
+                </div>
+                ReactDOM.render(a,document.getElementById("r"))
+        </script>
+    </body>
+</html>
