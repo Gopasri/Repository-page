@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document</title>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            var gal = [
+                    "https://th.bing.com/th/id/OIP.KOOipupW_5_J2Yv5CgFH6wHaEK?w=307&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+                    "https://th.bing.com/th/id/OIP.oWScGxjOKVManxowh95M8AHaE8?w=317&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+                    "https://th.bing.com/th/id/OIP.tT7UG7QNOQKvijhtgqq2lAHaE8?w=293&h=196&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+                    "https://th.bing.com/th/id/OIP.XLOmKHRDQr34bcEQkQoswwHaE5?w=289&h=191&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+                ]
+            function Gallery(){
+                var [i,sfn]= React.useState(0)
+                function nImg(){
+                    sfn(i+1)
+                }
+                function pImg(){
+                    sfn(i-1)
+                }
+                if(i===gal.length ){
+                        i=0;
+                }
+                return (
+                    <div>
+                        <img src={gal[i]} style={{height:"200px"}} alt=""/>
+                        <br/>
+                        <button onClick={() => { nImg() }}>Next</button>
+                        <button onClick={() => { pImg() }}>Previous</button>
+                    </div>
+                )
+            }
+            ReactDOM.render(<Gallery/>,document.getElementById("root"))
+        </script>
+    </body>
+</html>
